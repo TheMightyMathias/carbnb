@@ -7,5 +7,5 @@ class Car < ApplicationRecord
   validates :year, presence: true, numericality: true
   validates :model, presence: true
   validates :location, presence: true
-
+  validates :title, presence: true
 end
