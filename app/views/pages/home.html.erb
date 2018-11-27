@@ -1,14 +1,6 @@
 <h1>CarBnB</h1>
-
-<p>Search bar goes here</p>
-
-<div class="container">
-  <div class="row">
-    <div class="search">
-      <%= form_tag(cars_search_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Cars" %>
-            <%= submit_tag "Search" %>
-      <% end %>
+  <div class="container">
+    <div class="row">
     <div class="input-group input-daterange">
     <input id="startDate1" name="startDate1" type="text"
       class="form-control" readonly="readonly"> <span
@@ -19,24 +11,29 @@
     <span class="input-group-addon"> <span
       class="glyphicon glyphicon-calendar"></span>
     </span>
-  </div>
-
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-       $('.input-daterange').datepicker({
-              });
-    });
-  </script>
+    </div>
+</div>
+</div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+         $('.input-daterange').datepicker({
+                });
+      });
+    </script>
+<div class="container">
+  <div class="row">
+    <div class="search">
+      <%= form_tag(search_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:location], placeholder: "Where" %>
+            <%= submit_tag "Search" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
 
-<% if @cars.present? %>
-  <%= render @cars %>
-<% else %>
-  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-<% end %>
+
 
 <%= link_to "Cars List", cars_path %>
