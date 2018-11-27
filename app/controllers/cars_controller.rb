@@ -17,7 +17,7 @@ def create
   end
 
  def index
-  @cars = Car.all
+   @cars = Car.all
 end
 
   private
