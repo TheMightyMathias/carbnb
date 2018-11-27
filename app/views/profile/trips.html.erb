@@ -2,7 +2,7 @@
   <i class="fas fa-arrow-left"> Back To Profile</i>
 <% end %>
 
-<h1>THIS PAGE DISPLAY ALL THE BOOKINGS OF A USER'S CAR</h1>
+<h1>THIS PAGE DISPLAY ALL THE CARS BOOKED BY THE USER</h1>
 
 <div class="container">
   <div class="row">
@@ -11,10 +11,10 @@
         <p>Start Date: <%= booking.start_date %> </p>
         <p>Start Date: <%= booking.end_date %> </p>
         <p>Car: <%= booking.car.title %></p>
-        <p>Renter : <%= booking.user.email %></p>
+        <p>Owner : <%= booking.car.user.email %></p>
         <p>Booking Confirmed : <%= booking.validated %></p>
         <%= link_to booking_path(booking.id) do %>
-          <i class="far fa-edit"> Edit</i>
+          See Details
         <% end %>
       </div>
     <% end %>
