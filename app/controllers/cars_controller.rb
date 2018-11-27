@@ -19,9 +19,35 @@ class CarsController < ApplicationController
     end
   end
 
+  def show
+    set_car
+    @car = Car.find(params[:id])
+    @car.user = current_user
+  end
+
+  def edit
+    set_car
+  end
+
+  def update
+    set_car
+    @car.update(car_params)
+    redirect_to car_path(@car)
+  end
+
+  def destroy
+    set_car
+    @car.destroy
+    redirect_to root_path
+  end
+
   private
 
   def car_params
     params.require(:car).permit(:photos, :brand, :color, :year, :model, :location)
   end
+end
+
+def set_car
+  @car = Car.find(params[:id])
 end
