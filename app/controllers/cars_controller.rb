@@ -19,6 +19,15 @@ class CarsController < ApplicationController
     end
   end
 
+    def search
+      @cars = Car.all
+      if params[:search]
+        @cars = Car.search(params[:search]).order("created_at DESC")
+      else
+        @cars = Car.all.order('created_at DESC')
+      end
+    end
+
   private
 
   def car_params
