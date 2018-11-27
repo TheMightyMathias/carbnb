@@ -19,16 +19,19 @@ class CarsController < ApplicationController
     end
   end
 
-    def search
-      raise
-
-      @cars = Car.all
-      if params[:search]
-        @cars = Car.where(location: params[:search]).order("created_at DESC")
-      else
-        @cars = Car.all.order('created_at DESC')
-      end
+  def search
+    @cars = Car.all
+    if params[:search]
+      @cars = Car.where(location: params[:search]).order("created_at DESC")
+    else
+      @cars = Car.all.order('created_at DESC')
     end
+  end
+
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+    where("content LIKE ?", "%#{search}%")
+  end
 
   def show
     set_car
