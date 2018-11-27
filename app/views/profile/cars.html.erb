@@ -1,0 +1,25 @@
+<%= link_to profile_path do %>
+  <i class="fas fa-arrow-left"> Back To Profile</i>
+<% end %>
+
+<h1>THIS PAGE DISPLAY ALL THE CARS OF THE USER</h1>
+
+<div class="container">
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-xs-12 col-md-6">
+        <%= car.title %>
+        <%= car.model %>
+        <%= car.brand %>
+        <%= car.year %>
+        <%= car.location %>
+        <%= car.color %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
