@@ -1,0 +1,15 @@
+<div class= "banner-photo-show">
+
+  <h1>All Saved Cars</h1>
+
+  <%= link_to "Add a new Car", new_car_path, class: "btn-large" %>
+
+
+  <% @cars.each do |car| %>
+    <%= car.model %>
+  <% end %>
+
+</div>
+
+
+
