@@ -1,21 +1,24 @@
 
-  <h1>All Saved Cars</h1>
+<h1>All Saved Cars</h1>
 
 
+<div>
+  <% @cars.each do |car| %>
   <div>
-    <% @cars.each do |car| %>
-    <div>
-    <%= link_to car.model, car_path(car) %> </h2>
+    <h2><%= link_to car.title, car_path(car)%></h2>
+    <h4><%= car.model%></h4>
+    <h4><%= car.location%></h4>
     <% end %>
-    </div>
   </div>
+</div>
 
 
-  <br>
+<br>
 
-  <div>
-    <%= link_to "Add a new Car", new_car_path, class: "btn-large"%>
-  </div>
+<div>
+  <%= link_to "Add a new Car", new_car_path, class: "btn-large"%>
+</div>
+
 
 
 

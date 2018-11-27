@@ -7,10 +7,10 @@ class Car < ApplicationRecord
   validates :year, presence: true, numericality: true
   validates :model, presence: true
   validates :location, presence: true
+  validates :title, presence: true
 
   def self.search(search)
     where("name LIKE ?", "%#{search}%")
     where("content LIKE ?", "%#{search}%")
   end
-
 end
