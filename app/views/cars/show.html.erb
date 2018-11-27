@@ -12,24 +12,25 @@
         <%= @car.color %>
         <br>
 
-<div class= "banner-photo-show">
-  <h1> SHOW PAGE</h1>
+<div class="container" class= "banner-photo-show">
+  <h1 style="text-align:center;"> SHOW PAGE</h1>
 </div>
 
-<div class="container" style="text-align:center">
+<div class="container" style="text-align:center;">
   <div class="row">
    <div class="col-xs-12 col-md-6">
 
       <h1 class=><%= @car.model %></h1><br>
-      <!-- <p><%= car.model %></p> -->
-      <p><%= @car.brand %></p>
-      <p><%= @car.year %></p>
-      <p><%= @car.color %></p>
-      <p><%= @car.location %></p>
-      <p><%= @car.price %></p>
+      <p>_____________________________</p>
+      <p>Title: <%= @car.title %></p>
+      <p>Brand: <%= @car.brand %></p>
+      <p>Year: <%= @car.year %></p>
+      <p>Color: <%= @car.color %></p>
+      <p>Location: <%= @car.location %></p>
+      <p> Price: $<%= @car.price %></p>
 
-      <div style="text-align:center" class="btn btn-success">
-        <%= link_to "Back to all Cars", cars_path, class: "btn btn-primary" %>
+      <div style="text-align:center" class="btn">
+        <%= link_to "Back to all Cars", cars_path, class: "btn btn-primary" %><br>
       </div>
     </div>
   </div>
