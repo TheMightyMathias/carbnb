@@ -14,12 +14,11 @@
         <%= car.year %>
         <%= car.location %>
         <%= car.color %>
+        <%= link_to edit_car_path(car.id) do %>
+          <i class="far fa-edit"> Edit</i>
+        <% end %>
       </div>
     <% end %>
   </div>
 </div>
-
-
-
-
 

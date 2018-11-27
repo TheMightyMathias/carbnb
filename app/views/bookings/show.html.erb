@@ -1,0 +1,16 @@
+<!-- Need to raise an error if current user different from owner / renter -->
+
+<h2>Info about the Booking</h2>
+<%=  @booking.start_date%>
+<%=  @booking.end_date%>
+<%= @booking.validated %>
+
+<h2>Info about the car</h2>
+<%= @car.model %>
+<%= @car.color %>
+<%= @car.year %>
+
+<h2>Info about the renter</h2>
+<%= @renter.email %>
+<br>
+<%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %>

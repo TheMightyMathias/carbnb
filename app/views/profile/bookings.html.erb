@@ -12,6 +12,10 @@
         <p>Start Date: <%= booking.end_date %> </p>
         <p>Car: <%= booking.car.title %></p>
         <p>Owner : <%= booking.car.user.email %></p>
+        <p>Booking Confirmed : <%= booking.validated %></p>
+        <%= link_to booking_path(booking.id) do %>
+          <i class="far fa-edit"> Edit</i>
+        <% end %>
       </div>
     <% end %>
   </div>

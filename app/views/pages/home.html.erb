@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="search">
-      <%= form_tag(cars_search_path, :method => "get", id: "search-form") do %>
+      <%= form_tag(cars_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Cars" %>
             <%= submit_tag "Search" %>
       <% end %>
