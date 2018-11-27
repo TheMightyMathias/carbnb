@@ -1,6 +1,19 @@
 <h1>CarBnB</h1>
+<<<<<<< HEAD
   <div class="container">
     <div class="row">
+=======
+
+<p>Search bar goes here</p>
+
+<div class="container">
+  <div class="row">
+    <div class="search">
+      <%= form_tag(cars_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Cars" %>
+            <%= submit_tag "Search" %>
+      <% end %>
+>>>>>>> 65b7eb5ec8697ea3899388f93014479720e324c3
     <div class="input-group input-daterange">
     <input id="startDate1" name="startDate1" type="text"
       class="form-control" readonly="readonly"> <span
