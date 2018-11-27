@@ -1,29 +1,27 @@
 class CarsController < ApplicationController
-  def new
-    @user = User.find(params[:user_id])
-    @dose = Dose.new
+  def index
+    @cars = Car.all
   end
 
-def create
+  def new
+    @car = Car.new
+    @user = current_user
+  end
+
+  def create
     @car = Car.new(car_params)
-    @user = User.find(params[:user_id])
-    @car.user = @user
+    @car.user = current_user
     @car.save
     if @car.save
-      redirect_to user_path(@user)
+      redirect_to car_path(@car)
     else
       render :new
     end
   end
 
- def index
-  @cars = Car.all
-end
-
   private
 
   def car_params
-    params.require(:car).permit(:user_id, :photos, :brand, :color, :year, :model, :location)
+    params.require(:car).permit(:photos, :brand, :color, :year, :model, :location)
   end
 end
-
