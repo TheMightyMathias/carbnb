@@ -22,6 +22,7 @@ class CarsController < ApplicationController
   def search
     if params[:query]
       @cars = Car.where(location: params[:query][:location]).order("created_at DESC")
+      @params = search_params
     else
       @cars = Car.all.order('created_at DESC')
     end
@@ -29,8 +30,11 @@ class CarsController < ApplicationController
 
   def show
     set_car
+    @starts_at = params[:starts_at]
+    @ends_at = params[:ends_at]
     @car = Car.find(params[:id])
     @car.user = current_user
+
   end
 
   def edit
@@ -53,6 +57,10 @@ class CarsController < ApplicationController
 
   def car_params
     params.require(:car).permit(:photos, :brand, :color, :year, :model, :location, :title, :price)
+  end
+
+  def search_params
+    params.require(:query).permit(:starts_at, :ends_at)
   end
 end
 
