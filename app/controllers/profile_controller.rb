@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
 
-before_action :set_user, only: [:show, :cars, :bookings, :trips]
+before_action :set_user, only: [:show, :cars, :bookings, :trips, :edit]
 
   def show
   end
@@ -17,6 +17,9 @@ before_action :set_user, only: [:show, :cars, :bookings, :trips]
 
   def trips
     @bookings = @user.bookings
+  end
+
+  def edit
   end
 
   private
