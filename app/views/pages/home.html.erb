@@ -1,17 +1,19 @@
-<h1>CarBnB</h1>
-  <div class="row">
-    <div class="search">
-      <div class="container">
-        <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-          <%= simple_form_for :search, method: "get" do |f| %>
-             <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-             <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-             <%= f.input :location, as: :string, placeholder: "Where" %>
-            <%= f.button :submit, "Go", class: "btn btn-primary" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
 
-<%= link_to "Cars List", cars_path %>
+      <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
+        <div class="banner-content">
+          <h1>CarBnB</h1>
+            <p>Get There Bed-n-Breakfast</p>
+              <div class="form-wrapper" style="width: 200px; margin: 0 auto;">
+                <%= simple_form_for :car, url: search_path, method: "get" do |f| %>
+                <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+              </div>
+              <div clas="form-wrapper" style="width: 150px; margin: 0 auto;">
+                <%= f.input :location, as: :string, placeholder: "Where" %>
+                <%= f.button :submit, "Go", class: "btn btn-primary" %>
+              </div>
+                <% end %>
+            </div>
+          </div>
+
+
