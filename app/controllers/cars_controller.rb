@@ -33,8 +33,6 @@ class CarsController < ApplicationController
     @starts_at = params[:starts_at]
     @ends_at = params[:ends_at]
     @car = Car.find(params[:id])
-    @car.user = current_user
-
   end
 
   def edit

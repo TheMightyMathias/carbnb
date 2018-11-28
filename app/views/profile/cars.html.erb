@@ -7,16 +7,22 @@
 <div class="container">
   <div class="row">
     <% @cars.each do |car| %>
-      <div class="col-xs-12 col-md-6">
+      <div class="card col-xs-12 col-md-6">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://www.supercars.net/blog/wp-content/uploads/2017/02/Porsche-Panamera-Turbo-hd-wallpaper.gif');">
+        <div class="card-category"><h4><%= car.location%></h4></div>
+        <div class="card-description">
         <%= car.title %>
         <%= car.model %>
         <%= car.brand %>
         <%= car.year %>
-        <%= car.location %>
         <%= car.color %>
+        </div>
+        <div class="card-edit">
         <%= link_to edit_car_path(car.id) do %>
-          <i class="far fa-edit"> Edit</i>
+          <i class="far fa-edit" style="color:white"> Edit</i>
         <% end %>
+        </div>
+      </div>
       </div>
     <% end %>
   </div>
