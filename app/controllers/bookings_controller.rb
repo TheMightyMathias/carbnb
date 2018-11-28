@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+
   def show
     set_booking
     @car = @booking.car
