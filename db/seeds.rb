@@ -8,11 +8,41 @@
 
 p "creating 5 users"
 
-User.create({ email: 'ryan@wagon.com', password:'123456'})
-User.create({ email: 'goga@wagon.com', password:'123456'})
-User.create({ email: 'douglas@wagon.com', password:'123456'})
-User.create({ email: 'mathias@wagon.com', password:'123456'})
-User.create({ email: 'zozo@wagon.com', password:'123456'})
+User.create({ email: 'ryan@wagon.com', password:'123456',
+  first_name: 'Ryan',
+  last_name: 'Propst',
+  username: 'RyanPropst1',
+  phone_number: '12345678',
+  avatar_url: 'https://avatars0.githubusercontent.com/u/40554996?s=400&v=4',
+})
+User.create({ email: 'goga@wagon.com', password:'123456',
+  first_name: 'Goga',
+  last_name: '2004',
+  username: 'Goga2004',
+  phone_number: '',
+  avatar_url: 'https://avatars2.githubusercontent.com/u/37845674?s=400&v=4',
+})
+User.create({ email: 'douglas@wagon.com', password:'123456',
+  first_name: 'Douglas',
+  last_name: 'Bay',
+  username: 'douglasbays',
+  phone_number: '2345678909876',
+  avatar_url: 'https://avatars2.githubusercontent.com/u/43327471?s=400&v=4',
+})
+User.create({ email: 'mathias@wagon.com', password:'123456',
+  first_name: 'Mathias',
+  last_name: 'Sellam',
+  username: 'TheMightyMathias',
+  phone_number: '3456789098765',
+  avatar_url: 'https://avatars1.githubusercontent.com/u/38690859?s=400&u=6cc9be8223d682144475e6fa07242da4f1c4a788&v=4',
+})
+User.create({ email: 'zozo@wagon.com', password:'123456',
+  first_name: 'Zozo',
+  last_name: 'zozozo',
+  username: 'ZZZZZzzz',
+  phone_number: '+3356789',
+  avatar_url: '',
+})
 
 p "creating 5 cars"
 
