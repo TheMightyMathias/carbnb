@@ -20,8 +20,8 @@ class CarsController < ApplicationController
   end
 
   def search
-    if params[:search]
-      @cars = Car.where(location: params[:car][:location]).order("created_at DESC")
+    if params[:query]
+      @cars = Car.where(location: params[:query][:location]).order("created_at DESC")
     else
       @cars = Car.all.order('created_at DESC')
     end
