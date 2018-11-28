@@ -13,4 +13,8 @@
 <h2>Info about the renter</h2>
 <%= @renter.email %>
 <br>
+<% if current_user == @car.user  %>
 <%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %>
+<% else %>
+<%= link_to "Cancel Booking", booking_path(@booking.id), method: :delete %>
+<% end %>

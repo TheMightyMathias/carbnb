@@ -12,6 +12,12 @@ class BookingsController < ApplicationController
     redirect_to booking_path(@booking.id)
   end
 
+  def destroy
+    set_booking
+    @booking.destroy
+    redirect_to profile_path
+  end
+
   private
 
   def set_booking

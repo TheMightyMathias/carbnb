@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 p "creating 5 users"
 
 User.create({ email: 'ryan@wagon.com', password:'123456'})
@@ -103,3 +104,11 @@ Booking.create ({
   car_id: 2  ,
 }
 )
+Booking.create ({
+  start_date: Date.new(2019,01,01),
+  end_date: Date.new(2019,01,14),
+  user_id: 1,
+  car_id: 4,
+}
+)
+
