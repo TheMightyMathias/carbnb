@@ -1,26 +1,9 @@
-<h2>Your booking starts on <%= @starts_at %> and ends on <%= @ends_at %></h2>
-<div class= "banner-photo-show">
-  <h1> <%=  @car.model %> </h1>
-</div>
-        <%= @car.model %>
-        <br>
-        <%= @car.brand %>
-        <br>
-        <%= @car.year %>
-        <br>
-        <%= @car.location %>
-        <br>
-        <%= @car.color %>
-        <br>
-
-<div class="container" class= "banner-photo-show">
-  <h1 style="text-align:center;"> SHOW PAGE</h1>
-</div>
-
-<div class="container" style="text-align:center;">
-  <div class="row">
-   <div class="col-xs-12 col-md-6">
-
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
+  <div id="container" class= "banner-photo-show">
+    <h1 style="text-align:center;"> Your Dream Car</h1>
+    <p>select below to book your dates</p>
+    <div class="row", style="text-align:center;>
+    <div class="form-wrapper" style="width: 200px; margin: 0 auto;">
       <h1 class=><%= @car.model %></h1><br>
       <p>_____________________________</p>
       <p>Title: <%= @car.title %></p>
@@ -29,12 +12,9 @@
       <p>Color: <%= @car.color %></p>
       <p>Location: <%= @car.location %></p>
       <p> Price: $<%= @car.price %></p>
-
-      <div style="text-align:center" class="btn">
-        <%= link_to "Back to all Cars", cars_path, class: "btn btn-primary" %><br>
-      </div>
+    </div>
+    <div style="text-align:center" class="btn">
+      <%= link_to "Back to all Cars", cars_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
-
-

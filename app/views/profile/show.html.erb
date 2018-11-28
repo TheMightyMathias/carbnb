@@ -1,13 +1,13 @@
-  <div class="container">
+  <div class="container profile-action">
     <div class="row">
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <%= link_to "My Bookings", profile_my_bookings_path %>
+        <%= link_to "My Bookings", profile_my_bookings_path, class: "btn btn-navigation" %>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <%= link_to "My Cars", profile_my_cars_path %>
+        <%= link_to "My Cars", profile_my_cars_path, class: "btn btn-navigation" %>
       </div>
       <div class="col-xs-12 col-md-6 col-lg-4">
-        <%= link_to "My Trips", profile_my_trips_path %>
+        <%= link_to "My Trips", profile_my_trips_path, class: "btn btn-navigation" %>
       </div>
     </div>
   </div>
@@ -16,7 +16,11 @@
 <h1><%= @user.username %></h1>
 
 <br>
+<% if @user.avatar_url == nil %>
+<img src='https://www.freeiconspng.com/uploads/user-login-icon-14.png' style="height:150px;">
+<% else %>
 <img src=<%= @user.avatar_url %>>
+<% end %>
 <p>First Name: <%= @user.first_name %></p>
 <p>Last Name : <%= @user.last_name %></p>
 <p>Phone Number : <%= @user.phone_number %></p>
