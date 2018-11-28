@@ -11,7 +11,6 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
-    @car.save
     if @car.save
       redirect_to car_path(@car)
     else
@@ -29,12 +28,15 @@ class CarsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     set_car
-    @starts_at = params[:starts_at]
-    @ends_at = params[:ends_at]
-    @car = Car.find(params[:id])
+    if params[:query]
+      @starts_at = search_params[:starts_at]
+      @ends_at = search_params[:ends_at]
+      @booking.start_date = @starts_at
+      @booking.end_date = @ends_at
+    end
     @car.user = current_user
-
   end
 
   def edit
@@ -56,7 +58,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:photos, :brand, :color, :year, :model, :location, :title, :price)
+    params.require(:car).permit(:photos, :brand, :color, :year, :model, :location, :title, :price, :url)
   end
 
   def search_params
