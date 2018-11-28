@@ -5,43 +5,16 @@
 <br>
 <%= @params %>
 <div>
-  <%= link_to "Add a new Car", new_car_path, class: "btn-large"%>
+  <%= link_to "Add a new Car", new_car_path, class: "btn btn-primary"%>
 </div>
 
 <br>
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <% @cars.each do |car| %>
-      <%= link_to car_path(car, @params) do  %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-        <div class="card-category"><h4><%= car.location%></h4></div>
-        <div class="card-description">
-          <h2><%= car.brand %></h2>
-          <p><%= car.model%></p>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <% @cars.each do |car| %>
-      <%= link_to car_path(car) do  %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
-        <div class="card-category"><h4><%= car.location%></h4></div>
-        <div class="card-description">
-          <h2><%= car.brand %></h2>
-          <p><%= car.model%></p>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-     <% @cars.each do |car| %>
-     <%= link_to car_path(car) do  %>
-     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
+    <% @cars.each do |car| %>
+    <%= link_to car_path(car) do  %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.supercars.net/blog/wp-content/uploads/2017/02/Porsche-Panamera-Turbo-hd-wallpaper.gif');">
       <div class="card-category"><h4><%= car.location%></h4></div>
       <div class="card-description">
         <h2><%= car.brand %></h2>
@@ -51,4 +24,6 @@
     <% end %>
     <% end %>
   </div>
+
+
 </div>
