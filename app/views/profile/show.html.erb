@@ -1,21 +1,26 @@
-<h1><%=  %>UserName</h1>
-<button> Edit Profile    <i class="far fa-edit"></i></button>
-<br>
-<img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle">
-<p>First Name</p>
-<p>Last Name</p>
-<p><%= @user.email %></p>
-<p>phone number</p>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-6 col-lg-4">
         <%= link_to "My Bookings", profile_my_bookings_path %>
       </div>
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-6 col-lg-4">
         <%= link_to "My Cars", profile_my_cars_path %>
       </div>
-      <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12 col-md-6 col-lg-4">
         <%= link_to "My Trips", profile_my_trips_path %>
       </div>
     </div>
   </div>
+
+
+<h1><%= @user.username %></h1>
+
+<br>
+<img src=<%= @user.avatar_url %>>
+<p>First Name: <%= @user.first_name %></p>
+<p>Last Name : <%= @user.last_name %></p>
+<p>Phone Number : <%= @user.phone_number %></p>
+<p>Email : <%= @user.email %></p>
+
+<button> Edit Profile    <i class="far fa-edit"></i></button>
+
