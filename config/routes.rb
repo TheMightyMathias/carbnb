@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   resources :cars
   get '/search', to: "cars#search", as: :search
 # =======
-  get '/profile', to: 'profile#show'
-  get '/profile/my_cars', to: 'profile#cars'
-  get '/profile/my_bookings', to: 'profile#bookings'
-  get '/profile/my_trips', to: 'profile#trips'
-  resources :bookings, only: [:show, :update, :destroy]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+get '/profile', to: 'profile#show'
+get '/profile/my_cars', to: 'profile#cars'
+get '/profile/my_bookings', to: 'profile#bookings'
+get '/profile/my_trips', to: 'profile#trips'
+get '/profile/:id/edit', to: 'profile#edit', as: :edit_profile
+patch '/profile/:id', to: 'profile#update'
+
 end
