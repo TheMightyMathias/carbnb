@@ -55,6 +55,18 @@ class CarsController < ApplicationController
     redirect_to root_path
   end
 
+  def results
+  @flats = Flat.where.not(latitude: nil, longitude: nil)
+  @
+
+    @markers = @flats.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude
+      }
+    end
+  end
+
   private
 
   def car_params

@@ -1,6 +1,41 @@
-h1{
-  margin-bottom: 0px;
+h1 {
+
+  margin-bottom: 40px;
 }
+
+.form-border{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border:2px solid #ded4da;
+ padding:50px;
+ height:auto;
+}
+
+.form-car-dates {
+  width: 60%;
+
+}
+
+.car-details{
+  border:2px solid #ded4da;
+  padding:50px;
+
+}
+
+.car-info {
+  width: 100%;
+}
+.left-side {
+  float: left;
+  width: 50%;
+}
+
+.right-side {
+  float: right;
+  width: 50%;
+}
+
 #uo_show{
   margin-top: 0;
   margin-bottom: 12.5px;
@@ -10,13 +45,10 @@ h1{
   margin: 0 !important;
 }
 
-.container-profile {
-  display: flex;
-  text-align: center;
+.col-med-8{
+  height:75%;
 }
 
-.car-details{
-    border:2px solid #ded4da;
-    padding:50px;
-}
+
+
 
