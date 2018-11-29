@@ -12,6 +12,9 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
+      params[:car][:photo].each do |photo|
+        @car.photos.create(picture: photo)
+      end
       redirect_to car_path(@car)
     else
       render :new
@@ -58,7 +61,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
-    params.require(:car).permit(:photos, :brand, :color, :year, :model, :location, :title, :price, :url)
+    params.require(:car).permit(:brand, :color, :year, :model, :location, :title, :price, :url, photos_attributes: [:id, :car_id, :picture])
   end
 
   def search_params

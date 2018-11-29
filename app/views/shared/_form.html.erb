@@ -6,6 +6,7 @@
 <%= f.input :color %>
 <%= f.input :location %>
 <%= f.input :price %>
+<%= f.file_field  :photos, multiple: true %>
 <%= f.input :url, label: "Picture URL" %>
 <%= f.submit %>
 <% end %>
