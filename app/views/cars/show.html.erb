@@ -1,28 +1,53 @@
-<div class="container"></div>
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
-  <div id="container" class= "banner-photo-show" style='text-align: center'>
-    <% if current_user == @car.user %>
-    <% else %>
-    <h1> Your Dream Car</h1>
-    <p id="book_btn">Your booking starts on <%= @starts_at %> and ends on <%= @ends_at %></p>
-    <p style="text-align:center" class="btn">
-      <%= link_to "Book now", "", class: "btn btn-primary" %>
-    </p>
-    <% end  %>
-    <div class="content" style="text-align:center;" >
-      <h1 class=><%= @car.model %></h1>
-      <p>_______________________</p>
-      <ul id= "uo_show" style="list-style: none;"  >
-        <li>Title: <%= @car.title %></li>
-        <li>Brand: <%= @car.brand %></li>
-        <li>Year: <%= @car.year %></li>
-        <li>Color: <%= @car.color %></li>
-        <li>Location: <%= @car.location %></li>
-        <li> Price: $<%= @car.price %></li>
-      </ul>
-    </div>
-    <div style="text-align:center" class="btn">
-      <%= link_to "Back to all Cars", cars_path, class: "btn btn-primary" %>
+
+
+  <!--   <div id="container" class= "banner-photo-show" style='text-align: center'> -->
+    <!-- <p id="book_btn">Your booking starts on <%= @starts_at %> and ends on <%= @ends_at %></p> -->
+    <div class="container">
+      <h1> Your Dream Car</h1>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-border">
+            <div class="form-car-dates">
+              <%= simple_form_for [@car, @booking] do |b| %>
+              <%= b.input :start_date, :as => :string, :input_html => { :value => localize(b.object.start_date) } %>
+              <%= b.input :end_date, :as => :string, :input_html => { :value => localize(b.object.end_date) } %>
+              <%= b.submit "Submit", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="btn text-center">
+            <%= link_to "Back to all Cars", cars_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+
+        <div class="col-md-8 car-details text-center">
+          <h2><%= @car.model %></h2>
+          <p>_______________________</p>
+          <table class="car-info">
+            <tr>
+              <td>Title:</td>
+              <td>Brand:</td>
+              <td>Year:</td>
+              <td>Color:</td>
+              <td>Location:</td>
+              <td>Price:</td>
+            </tr>
+            <tr>
+              <td><%= @car.title %></td>
+              <td><%= @car.brand %></td>
+              <td><%= @car.year %></td>
+              <td><%= @car.color %></td>
+              <td><%= @car.location %></td>
+              <td>$<%= @car.price %></td>
+            </tr>
+          </table>
+          <!-- -- PUT THIS ISNIDE A TABLE -- -->
+        </div>
+      </div>
     </div>
   </div>
-</div>
+
+
+
+
