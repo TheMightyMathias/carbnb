@@ -1,22 +1,17 @@
 
 
-<h1>Cars in your Location</h1>
-
-<div>
-  <%= link_to "Add a new Car", new_car_path, class: "btn btn-primary"%>
-</div>
-
-<br>
+<h1>Search Results</h1>
 
 <div class="container">
   <div class="row">
     <% @cars.each do |car| %>
-    <%= link_to car_path(car, query: @params) do  %>
+    <div class="col-xs-12 col-md-6 col-md-6">
+    <%= link_to car_path(car, query: @params) do %>
     <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i.kinja-img.com/gawker-media/image/upload/s--N9dSzhBR--/c_scale,f_auto,fl_progressive,q_80,w_800/h69z8tw0lyq9b8txhupw.jpg');">
-      <div class="card-category"><h4><%= car.location%></h4></div>
+      <%= car.location%>
       <div class="card-description">
         <h2><%= car.brand %></h2>
-        <p><%= car.model%></p>
+        <p><%= car.model %></p>
       </div>
     </div>
     <% end %>
