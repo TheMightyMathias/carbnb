@@ -41,6 +41,7 @@ class CarsController < ApplicationController
     end
   end
 
+
     def show
       @booking = Booking.new
       set_car

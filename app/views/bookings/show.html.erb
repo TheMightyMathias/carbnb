@@ -14,7 +14,8 @@
 <%= @renter.email %>
 <br>
 <% if current_user == @car.user  %>
-<%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %>
+<%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %> <br>
+<%= link_to "Decline Booking", booking_path(@booking.id), method: :delete %>
 <% else %>
 <%= link_to "Cancel Booking", booking_path(@booking.id), method: :delete %>
 <% end %>
