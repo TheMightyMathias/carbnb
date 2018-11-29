@@ -13,7 +13,7 @@
 <div class="container-profile">
   <div class="row">
     <div class="col-md-6 img">
-      <% if @user.photo == nil %>
+      <% if @user.photo.blank? %>
         <img src='https://www.freeiconspng.com/uploads/user-login-icon-14.png' style="height:150px;">
         <% else %>
         <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>

@@ -12,7 +12,7 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
-      params[:car][:photo].each do |photo|
+      params[:car][:photos].each do |photo|
         @car.photos.create(picture: photo)
       end
       redirect_to car_path(@car)
