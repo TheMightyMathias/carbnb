@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
 
-before_action :set_user, only: [:show, :cars, :bookings, :trips, :edit]
+  before_action :set_user, only: [:show, :cars, :bookings, :trips, :edit]
 
   def show
   end
@@ -20,6 +20,14 @@ before_action :set_user, only: [:show, :cars, :bookings, :trips, :edit]
   end
 
   def edit
+    # raise
+    set_user
+  end
+
+  def update
+    set_user
+    @user.update(user_params)
+    redirect_to profile_path(@user)
   end
 
   private
@@ -27,4 +35,9 @@ before_action :set_user, only: [:show, :cars, :bookings, :trips, :edit]
   def set_user
     @user = User.find(current_user.id)
   end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :email)
+  end
 end
+
