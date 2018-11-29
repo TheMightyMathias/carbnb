@@ -82,3 +82,34 @@
   top: 45px;
   right: 10px;
 }
+
+#profile-cars {
+  .card {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin-top: 50px;
+    height: 250px;
+  }
+
+  .card-body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  .edit-car {
+    margin-left: 10px;
+  }
+  .delete-car {
+    margin-right: 10px;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #D3D3D3;
+    opacity: 0.95;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
