@@ -6,17 +6,15 @@
   <div class="row">
     <% @cars.each do |car| %>
     <div class="col-xs-12 col-md-6 col-md-6">
-    <%= link_to car_path(car, query: @params) do %>
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i.kinja-img.com/gawker-media/image/upload/s--N9dSzhBR--/c_scale,f_auto,fl_progressive,q_80,w_800/h69z8tw0lyq9b8txhupw.jpg');">
-      <%= car.location%>
-      <div class="card-description">
-        <h2><%= car.brand %></h2>
-        <p><%= car.model %></p>
+      <%= link_to car_path(car, query: @params) do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i.kinja-img.com/gawker-media/image/upload/s--N9dSzhBR--/c_scale,f_auto,fl_progressive,q_80,w_800/h69z8tw0lyq9b8txhupw.jpg');">
+        <%= car.location%>
+        <div class="card-description">
+          <h2><%= car.brand %></h2>
+          <p><%= car.model %></p>
+        </div>
       </div>
+      <% end %>
     </div>
     <% end %>
-    <% end %>
-  </div>
-
-
 </div>
