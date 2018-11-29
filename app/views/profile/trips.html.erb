@@ -1,48 +1,42 @@
+
+<div class="booking-page">
 <%= link_to profile_path do %>
   <i class="fas fa-arrow-left"> Back To Profile</i>
 <% end %>
 
-<h4>THIS PAGE DISPLAY ALL THE CARS BOOKED BY THE USER</h4>
-
-
-<div class="container">
+<div class="container booking-container" style="margin:auto;">
   <div class="row">
     <% @bookings.each do |booking| %>
-      <div class="card-booking col-xs-12 col-md-6">
-      <div class="card-booking" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('https://www.supercars.net/blog/wp-content/uploads/2017/02/Porsche-Panamera-Turbo-hd-wallpaper.gif');">
-        <h3><%= booking.car.title %></h3>
-        <ul>
-        <li>Start Date: <%= booking.start_date %> </p>
-        <li>Start Date: <%= booking.end_date %> </p>
-
-        <li>Owner : <%= booking.car.user.email %></p>
-        <li>Booking Confirmed : <%= booking.validated %></p>
-        <%= link_to booking_path(booking.id) do %>
-          <li>See Details</li>
-        <% end %>
-      </ul>
+    <div class="card booking-card col-xs-12 col-md-6 col-lg-4" style="width: 400px; height: 550px; border: solid, white, 3px; background-color: white;">
+      <% if booking.car.photos.first == nil  %>
+      <img  class="card-img-top" src="http://www.cookandreevesvans.com/static/img/default-car.jpg" alt="Card image cap" style="width:100%;">
+      <% else %>
+      <%= cl_image_tag booking.car.photos.first, { class: "booking-img" } %>
+      <% end %>
+      <div class="container">
+        <h4 style="color: black; text-shadow: none;"><%= booking.car.title %></h4>
+        <p><i class="fa fa-calendar"></i>  Starts: <%= booking.start_date %></p>
+        <p><i class="fa fa-calendar"></i>  Starts: <%= booking.end_date %></p>
+        <br>
+        <p><i class="fa fa-envelope"></i>  Contact: <%= booking.car.user.email%></p>
+        <br>
+          <%= link_to booking_path(booking.id) do %>
+          <p class="bkbtn">More Details</p>
+          <% end %>
       </div>
-      </div>
+    </div>
     <% end %>
   </div>
 </div>
 
-            <p class="text-grey-darker text-xs mb-8">Responsive cards (1 / 2 / 3 cols); card footer; css flex properties for equal heights. Unsplash photos.</p>
-            <% @bookings.each do |booking| %>
-            <div class="flex flex-wrap -m-3">
-              <div class="w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
-                  <div class="bg-cover h-48" style="background-image: url('https://www.supercars.net/blog/wp-content/uploads/2017/02/Porsche-Panamera-Turbo-hd-wallpaper.gif');"></div>
-                  <div class="p-4 flex-1 flex flex-col" style="
-                  ">
-                  <h3 class="mb-4 text-2xl"><%= booking.car.title %></h3>
-                  <div class="mb-4 text-grey-darker text-sm flex-1">
-                    <p>Start Date: <%= booking.end_date %> </p>
-                     <p>End Date: <%= booking.end_date %></p>
-                  </div>
-                  <a href="#" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide" style="
-                  ">Twitter</a>
-                  <% end %>
-                </div>
-              </div>
-            </div>
+
+
+
+
+
+
+
+
+
+
+
