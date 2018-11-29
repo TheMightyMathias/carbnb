@@ -10,3 +10,28 @@
 color:#32B796;
 border: 3px solid #32B796;
 }
+
+.sign_up_button {
+     border-color: #ae142a;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    color: #fff;
+    background-color: #ae142a;
+    padding: 5px 12px !important;
+    margin: 5px 0px 0px 10px;
+    border-radius: 3px;
+}
+.sign_up_button:hover {
+  color: #FFF;
+    background-color: #337AB7 !important;
+    border-color: #2E6DA4 !important;
+}
+
+.sign_in_button {
+  margin: 10px;
+}
+
+.add_car_button {
+
+}

@@ -12,6 +12,9 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
+      params[:car][:photo].each do |photo|
+        @car.photos.create(picture: photo)
+      end
       redirect_to car_path(@car)
     else
       render :new
@@ -19,15 +22,16 @@ class CarsController < ApplicationController
   end
 
   def search
-    # if params[:query]
-    #   @cars = Car.where(location: params[:query][:location]).order("created_at DESC")
-    #   @params = search_params
-    # else
-    #   @cars = Car.all.order('created_at DESC')
-    # end
-
-    @cars = Car.where.not(latitude: nil, longitude: nil)
-
+ 
+    if params[:query]
+      sql_query = "location ILIKE :query"
+      @cars = Car.where(sql_query, query: "%#{params[:query][:location]}%").order("created_at DESC")
+      @params = search_params
+    else
+      @cars = Car.all.order('created_at DESC')
+    end
+    
+       @cars = Car.where.not(latitude: nil, longitude: nil)
     @markers = @cars.map do |car|
       {
         lng: car.longitude,
@@ -59,17 +63,18 @@ class CarsController < ApplicationController
       redirect_to car_path(@car)
     end
 
-    def destroy
-      set_car
-      @car.destroy
-      redirect_to root_path
-    end
+  def destroy
+    set_car
+    @car.destroy
+    redirect_to profile_my_cars_path
+  end
 
     private
 
-    def car_params
-      params.require(:car).permit(:photos, :brand, :color, :year, :model, :location, :title, :price, :url)
-    end
+  def car_params
+    params.require(:car).permit(:brand, :color, :year, :model, :location, :title, :price, :url, photos_attributes: [:id, :car_id, :picture])
+  end
+
 
     def search_params
       params.require(:query).permit(:starts_at, :ends_at)
