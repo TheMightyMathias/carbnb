@@ -5,11 +5,13 @@
     <div class="row">
       <div class="col-sm-4 car-dates" >
           <h1> Your Dream Car</h1>
+          <p>Your selected booking dates are <br><strong><%= @starts_at %></strong> to <strong><%= @ends_at %></strong></p>
+          <p>Please click below to confirm</p>
           <p class="form-controls">
           <%= simple_form_for [@car, @booking] do |b| %>
-          <%= b.input :start_date %>
-          <%= b.input :end_date %>
-          <%= b.submit "Submit", class: "btn btn-primary" %>
+          <%= b.input :start_date, as: :hidden %>
+          <%= b.input :end_date, as: :hidden %>
+          <%= b.submit "Confirm Booking", class: "btn btn-primary" %>
           <% end %>
           </p>
       </div>

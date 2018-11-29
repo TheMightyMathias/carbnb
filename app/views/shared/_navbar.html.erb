@@ -8,10 +8,10 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
   <div class="navbar-wagon-item navbar-wagon-link">
-    <%= link_to "Add a new car", new_car_path, class: "btn btn-success" %>
+    <%= link_to "Add a new car", new_car_path, class: "add_car_button" %>
     <% if current_user == nil %>
-      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-danger" %>
-      <%= link_to "Sign In", new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "sign_up_button" %>
+      <%= link_to "Sign In", new_user_session_path, class: "sign_in_button" %>
     <% else %>
 
       </div>
