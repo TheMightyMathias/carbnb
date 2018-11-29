@@ -52,7 +52,7 @@ Car.create( {
   brand: 'Wolksagen',
   year: 2000,
   color: 'black',
-  location: 'Berlin',
+  location: 'Friedrichstraße 103, 10117 Berlin, Germany',
   price: 50 ,
   user_id: 1
 })
@@ -63,7 +63,7 @@ Car.create({
   brand: 'Renault',
   year: 2018,
   color: 'Light Grey',
-  location: 'Lyon',
+  location: '16 Villa Gaudelet, Paris',
   price: 40,
   user_id: 1
 })
@@ -74,7 +74,7 @@ Car.create({
   brand: 'fia',
   year: 2014,
   color: 'Red',
-  location: 'Firenze',
+  location: 'Piazza Sant Elisabetta, 3, 50122 Firenze FI, Italy',
   price: 40,
   user_id: 2
 }
@@ -85,7 +85,9 @@ Car.create({
   brand: 'Ferrari',
   year: 2012,
   color: 'Red',
-  location: 'Barcelona',
+  location: 'Carrer de Méndez Núñez
+Barcelona Catalonia 08003
+Spain',
   price: 100,
   user_id: 3
 })
@@ -96,10 +98,12 @@ Car.create({
   brand: 'Ford',
   year: 1978,
   color: 'Red with white stripes',
-  location: 'New York aka the big apple',
+  location: '07 E. 12th Street
+New York NY 10009',
   price: 70,
   user_id: 3
 })
+
 
 p "creating 5 bookings"
 
