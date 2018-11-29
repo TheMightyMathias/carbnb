@@ -8,4 +8,5 @@ class Car < ApplicationRecord
   validates :model, presence: true
   validates :location, presence: true
   validates :title, presence: true
+  accepts_nested_attributes_for :photos
 end

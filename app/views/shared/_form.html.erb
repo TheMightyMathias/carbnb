@@ -1,20 +1,13 @@
 
-    <div class="form">
-    <div class ="row">
-    <%= simple_form_for @car do |f| %>
-      <div class="col-xs-6 col-sm-12">
-      <div class="content" style="text-align:center;" >
-        <%= f.input :title %>
-        <%= f.input :brand %>
-        <%= f.input :model %>
-        <%= f.input :year %>
-        <%= f.input :color %>
-        <%= f.input :location %>
-        <%= f.input :price %>
-        <%= f.input :url, label: "Picture URL" %>
-        <%= f.submit %>
-      <% end %>
-    </div>
-  </div>
-</div>
-</div>
+<%= simple_form_for @car do |f| %>
+<%= f.input :title %>
+<%= f.input :brand %>
+<%= f.input :model %>
+<%= f.input :year %>
+<%= f.input :color %>
+<%= f.input :location %>
+<%= f.input :price %>
+<%= f.file_field  :photos, multiple: true %>
+<%= f.input :url, label: "Picture URL" %>
+<%= f.submit %>
+<% end %>
