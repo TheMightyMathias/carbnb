@@ -1,29 +1,27 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://baconcoffeemama.com/wp-content/uploads/2018/04/Small-House-Big-Garage-Car.jpg');">
-  <div class="row">
-      <h1>Welcome to your garage, <%= current_user.first_name %></h1>
+  <section id="profile-cars" class="pb-5">
     <div class="container">
+     <h5 class="section-title h1">Welcome to your garage, <%= current_user.first_name %></h5>
+     <div class="row">
       <% @cars.each do |car| %>
-        <div class="card col-xs-12 col-md-6">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://www.supercars.net/blog/wp-content/uploads/2017/02/Porsche-Panamera-Turbo-hd-wallpaper.gif');">
-            <div class="card-category"><h4><%= car.location%></h4></div>
-              <div class="card-description">
-                <%= car.title %>
-                <%= car.model %>
-                <%= car.brand %>
-                <%= car.year %>
-                <%= car.color %>
-            </div>
-            <div class="card-edit">
-              <%= link_to edit_car_path(car.id) do %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card" style="background-image: url('<%= cl_image_path car.photos.first.picture %>');">
+          <div class="card-body text-center">
+            <p class="card-text"><%= car.year %> <%= car.color %> <%= car.model %> <%= car.brand %> in <%= car.location %></p>
+          </div>
+          <div class="card-footer">
+              <%= link_to edit_car_path(car.id), class: "edit-car" do %>
               <i class="far fa-edit" style="color:white"> Edit</i>
               <% end %>
+              <h4 class="card-title"><%= car.title %></h4>
               <%= link_to "Delete", car_path(car),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
+              method: :delete,
+              data: { confirm: "Are you sure?" }, class: "delete-car" %>
             </div>
-          </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
     </div>
   </div>
+</section>
 </div>
