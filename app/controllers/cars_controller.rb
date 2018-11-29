@@ -23,7 +23,8 @@ class CarsController < ApplicationController
 
   def search
     if params[:query]
-      @cars = Car.where(location: params[:query][:location]).order("created_at DESC")
+      sql_query = "location ILIKE :query"
+      @cars = Car.where(sql_query, query: "%#{params[:query][:location]}%").order("created_at DESC")
       @params = search_params
     else
       @cars = Car.all.order('created_at DESC')
@@ -55,7 +56,7 @@ class CarsController < ApplicationController
   def destroy
     set_car
     @car.destroy
-    redirect_to root_path
+    redirect_to profile_my_cars_path
   end
 
   private
