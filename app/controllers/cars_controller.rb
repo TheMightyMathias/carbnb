@@ -19,65 +19,63 @@ class CarsController < ApplicationController
   end
 
   def search
-    if params[:query]
-      @cars = Car.where(location: params[:query][:location]).order("created_at DESC")
-      @params = search_params
-    else
-      @cars = Car.all.order('created_at DESC')
-    end
-  end
+    # if params[:query]
+    #   @cars = Car.where(location: params[:query][:location]).order("created_at DESC")
+    #   @params = search_params
+    # else
+    #   @cars = Car.all.order('created_at DESC')
+    # end
 
-  def show
-    @booking = Booking.new
-    set_car
-    if params[:query]
-      @starts_at = search_params[:starts_at]
-      @ends_at = search_params[:ends_at]
-      @booking.start_date = @starts_at
-      @booking.end_date = @ends_at
-    end
-    @car.user = current_user
-  end
+    @cars = Car.where.not(latitude: nil, longitude: nil)
 
-  def edit
-    set_car
-  end
-
-  def update
-    set_car
-    @car.update(car_params)
-    redirect_to car_path(@car)
-  end
-
-  def destroy
-    set_car
-    @car.destroy
-    redirect_to root_path
-  end
-
-  def results
-  @flats = Flat.where.not(latitude: nil, longitude: nil)
-  @
-
-    @markers = @flats.map do |flat|
+    @markers = @cars.map do |car|
       {
-        lng: flat.longitude,
-        lat: flat.latitude
+        lng: car.longitude,
+        lat: car.latitude,
+         infoWindow: { content: render_to_string(partial: "/cars/map_window", locals: { car: car }) }
       }
     end
   end
 
-  private
+    def show
+      @booking = Booking.new
+      set_car
+      if params[:query]
+        @starts_at = search_params[:starts_at]
+        @ends_at = search_params[:ends_at]
+        @booking.start_date = @starts_at
+        @booking.end_date = @ends_at
+      end
+      @car.user = current_user
+    end
 
-  def car_params
-    params.require(:car).permit(:photos, :brand, :color, :year, :model, :location, :title, :price, :url)
+    def edit
+      set_car
+    end
+
+    def update
+      set_car
+      @car.update(car_params)
+      redirect_to car_path(@car)
+    end
+
+    def destroy
+      set_car
+      @car.destroy
+      redirect_to root_path
+    end
+
+    private
+
+    def car_params
+      params.require(:car).permit(:photos, :brand, :color, :year, :model, :location, :title, :price, :url)
+    end
+
+    def search_params
+      params.require(:query).permit(:starts_at, :ends_at)
+    end
+
+    def set_car
+      @car = Car.find(params[:id])
+    end
   end
-
-  def search_params
-    params.require(:query).permit(:starts_at, :ends_at)
-  end
-end
-
-def set_car
-  @car = Car.find(params[:id])
-end
