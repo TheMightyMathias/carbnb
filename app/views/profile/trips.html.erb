@@ -7,6 +7,12 @@
 <div class="container booking-container" style="margin:auto;">
   <div class="row">
     <% @bookings.each do |booking| %>
+        <div class="card booking-card col-xs-12 col-md-6 col-lg-4" style="width: 400px; height: 550px; border: solid, white, 3px; background-color: white;">
+      <% if booking.car.photos.first == nil  %>
+      <img  class="card-img-top" src="http://www.cookandreevesvans.com/static/img/default-car.jpg" alt="Card image cap" style="width:100%;">
+      <% else %>
+      <%= cl_image_tag booking.car.photos.first, { class: "booking-img" } %>
+      <% end %>
       <div class="container">
         <h4 style="color: black; text-shadow: none;"><%= booking.car.title %></h4>
         <p><i class="fa fa-calendar"></i>  Starts: <%= booking.start_date %></p>
