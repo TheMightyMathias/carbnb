@@ -1,13 +1,14 @@
 <!-- Need to raise an error if current user different from owner / renter -->
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
 
-<div class="booking-container-new">
-  <div class="booking-info">
-    <h2>Info about the Booking</h2>
+<div class="booking-container-new", style="margin: 20px;">
+  <div class="booking-info" style="background-color: gray; border-radius: 5px;">
+    <h2 style="font-size: 20px;">Info about the Booking</h2>
     <br>
     <br>
-    <p><i class="fa fa-calendar"></i>  Starts: <%=  @booking.start_date%></p>
-    <p><i class="fa fa-calendar"></i>  Starts: <%=  @booking.end_date%></p>
-    <p>Booking Status :
+    <p style="font-weight: bold; color: black;"><i class="fa fa-calendar"></i>  Starts: <%=  @booking.start_date%></p>
+    <p style="font-weight: bold; color: black;"><i class="fa fa-calendar"></i>  Starts: <%=  @booking.end_date%></p>
+    <p style="font-weight: bold;">Booking Status :
       <% if @booking.validated %>
       <span style="color:green">Validated</span>
       <% else %>
@@ -18,7 +19,8 @@
     <%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %> <br>
     <%= link_to "Decline Booking", booking_path(@booking.id), method: :delete %>
     <% else %>
-    <%= link_to "Cancel Booking", booking_path(@booking.id), method: :delete %>
+    <%= link_to "Cancel Booking", booking_path(@booking.id), method: :delete %><br>
+    <%= link_to "Back to My Bookings", profile_my_trips_path %>
     <% end %>
   </div>
   <div class="car-details">
@@ -26,7 +28,6 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width:200px;">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block" src="..." alt="First slide">
       </div>
       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -38,18 +39,11 @@
     </a>
   </div>
     <h2>Info about the car</h2>
+    <%= @car.color.capitalize %>
     <%= @car.model %>
-    <%= @car.color %>
-    <%= @car.year %>
+    <%= @car.brand %><br>
+    Year: <%= @car.year %><br>
+    Location: <%= @car.location %>
   </div>
 </div>
-
-
-
-<br>
-<% if current_user == @car.user  %>
-<%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %> <br>
-<%= link_to "Decline Booking", booking_path(@booking.id), method: :delete %>
-<% else %>
-<%= link_to "Cancel Booking", booking_path(@booking.id), method: :delete %>
-<% end %>
+</div>

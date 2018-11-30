@@ -36,7 +36,7 @@ class CarsController < ApplicationController
   def search
     if params[:query]
       sql_query = "location ILIKE :query"
-      @cars = Car.where(sql_query, query: "%#{params[:query][:location]}%").order("created_at DESC")
+      @cars = Car.where(sql_query, query: "%#{params[:query][:location]}%").order("created_at DESC").where.not(user: current_user)
       @params = search_params
     else
       @cars = Car.where.not(latitude: nil, longitude: nil)
