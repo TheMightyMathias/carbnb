@@ -19,3 +19,33 @@
     <% end %>
   </div>
 </div>
+
+<div class="container booking-container" style="margin:auto;">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card booking-card">
+          <% if booking.car.photos.first == nil  %>
+          <% photo = "http://www.cookandreevesvans.com/static/img/default-car.jpg" %>
+          <% else %>
+          <% photo = cl_image_path(booking.car.photos.first.picture) %>
+          <% end %>
+          <div class="booking-img-card" style="background-image: url(<%= photo %>)"></div>
+          <div class="container-trip-details">
+            <% if booking.validated == true %>
+            <h4 style="color: green; text-shadow: none;"><%= booking.car.title %></h4>
+            <% else %>
+            <h4 style="color: red; text-shadow: none;"><%= booking.car.title %></h4>
+            <% end %>
+            <p><i class="fa fa-calendar"></i>  Starts: <%= booking.start_date %></p>
+            <p><i class="fa fa-calendar"></i>  Starts: <%= booking.end_date %></p>
+            <p><i class="fa fa-envelope"></i>  Contact: <%= booking.user.email%></p>
+              <%= link_to booking_path(booking.id) do %>
+              <p class="bkbtn">More Details</p>
+              <% end %>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>
