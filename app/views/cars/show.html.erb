@@ -3,6 +3,8 @@
 <h1> Vehicle to be Booked:</h1>
   <div class="box">
     <div class="dates">
+      <% if @booking.start_date == nil %>
+      <% else %>
       <div class="form-border">
         <div class="form-car-dates">
           <%= simple_form_for [@car, @booking] do |b| %>
@@ -17,7 +19,9 @@
             <%= link_to "Continue Browsing", search_path, class: "btn btn-primary" %>
           </div>
         </div>
+
       </div>
+      <% end %>
     </div>
         <% if @car.photos.first == nil  %>
         <img src=""http://www.cookandreevesvans.com/static/img/default-car.jpg"" alt="" class="car-image">
