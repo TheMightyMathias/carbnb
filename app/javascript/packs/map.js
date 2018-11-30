@@ -33,6 +33,14 @@ if (markers.length === 0) {
     map.fitBounds(bounds, { duration: 0, padding: 75 })
   }
 
+//   const locationInput = document.getElementById('car_location');
+
+// if (locationInput) {
+//   const places = require('places.js');
+//   const placesAutocomplete = places({
+//     container: locationInput
+//   });
+
 
 
   // end of the if statement
