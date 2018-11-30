@@ -1,24 +1,7 @@
-
-<div class="container">
-  <div class="row">
-    <% @bookings.each do |booking| %>
-      <div class="card-booking col-xs-12 col-md-6">
-      <div class="card-booking" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('https://www.supercars.net/blog/wp-content/uploads/2017/02/Porsche-Panamera-Turbo-hd-wallpaper.gif');">
-        <h3><%= booking.car.title %></h3>
-        <ul>
-        <li>Start Date: <%= booking.start_date %> </li>
-        <li>Start Date: <%= booking.end_date %> </li>
-        <li>Renter : <%= booking.user.email %></li>
-        <li>Booking Confirmed : <%= booking.validated %></li>
-        </ul>
-        <%= link_to booking_path(booking.id) do %>
-          <i class="far fa-edit"> Edit</i>
-        </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
+<div class="booking-page">
+<%= link_to profile_path do %>
+  <i class="fas fa-arrow-left" style="color:black"> Back To Profile</i>
+<% end %>
 
 <div class="container booking-container" style="margin:auto;">
   <div class="row">
@@ -48,4 +31,5 @@
     </div>
     <% end %>
   </div>
+</div>
 </div>
