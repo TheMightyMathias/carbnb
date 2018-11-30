@@ -40,10 +40,10 @@ class CarsController < ApplicationController
       @params = search_params
 
     else
+      @cars = Car.where.not(latitude: nil, longitude: nil)
       @cars = Car.all.order('created_at DESC')
     end
 
-    @cars = Car.where.not(latitude: nil, longitude: nil)
     @markers = @cars.map do |car|
       {
         lng: car.longitude,
