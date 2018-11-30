@@ -7,7 +7,7 @@
 <div class="container booking-container" style="margin:auto;">
   <div class="row">
     <% @bookings.each do |booking| %>
-    <div class="col-xs-12 col-md-6 col-lg-4">
+    <div class="col-xs-12 col-md-6">
         <div class="card booking-card">
           <% if booking.car.photos.first == nil  %>
           <% photo = "http://www.cookandreevesvans.com/static/img/default-car.jpg" %>
