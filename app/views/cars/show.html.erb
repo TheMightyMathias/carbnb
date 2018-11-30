@@ -1,5 +1,4 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
-
     <div class="container">
       <h1> Your Dream Car</h1>
       <div class="row">
@@ -52,8 +51,33 @@
           <!-- -- PUT THIS ISNIDE A TABLE -- -->
         </div>
       </div>
+
+      <div class="col-md-8 car-details text-center">
+        <h2><%= @car.model %></h2>
+        <p>_______________________</p>
+        <table class="car-info">
+          <tr>
+            <td>Title:</td>
+            <td>Brand:</td>
+            <td>Year:</td>
+            <td>Color:</td>
+            <td>Location:</td>
+            <td>Price:</td>
+          </tr>
+          <tr>
+            <td><%= @car.title %></td>
+            <td><%= @car.brand %></td>
+            <td><%= @car.year %></td>
+            <td><%= @car.color %></td>
+            <td><%= @car.location %></td>
+            <td>$<%= @car.price %></td>
+          </tr>
+        </table>
+        <!-- -- PUT THIS ISNIDE A TABLE -- -->
+      </div>
     </div>
   </div>
+</div>
 
 
 

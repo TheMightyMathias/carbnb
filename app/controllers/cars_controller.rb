@@ -38,6 +38,7 @@ class CarsController < ApplicationController
       sql_query = "location ILIKE :query"
       @cars = Car.where(sql_query, query: "%#{params[:query][:location]}%").order("created_at DESC")
       @params = search_params
+
     else
       @cars = Car.all.order('created_at DESC')
     end

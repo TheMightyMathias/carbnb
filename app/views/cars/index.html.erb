@@ -14,9 +14,9 @@
           <%= link_to car_path(car) do  %>
           <!-- <div class="col-xs-12 col-sm-6 col-md-4""> -->
             <% if car.photos.first == nil  %>
-              <% photo = 'http://www.cookandreevesvans.com/static/img/default-car.jpg' %>
+            <% photo = 'http://www.cookandreevesvans.com/static/img/default-car.jpg' %>
             <% else %>
-              <% photo = cl_image_path car.photos.first.picture, height: 175, crop: :fill  %>
+            <% photo = cl_image_path car.photos.first.picture, height: 175, crop: :fill  %>
             <% end  %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= photo %>')">
               <div class="card-category">
@@ -27,17 +27,15 @@
                 <p><%= car.model%></p>
               </div>
             </div>
+            <% end %>
+          </div>
           <% end %>
         </div>
-        <% end %>
       </div>
-    </div>
-    <div
-    id="map"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div
+      id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
-<!-- </div>
-</div> -->
