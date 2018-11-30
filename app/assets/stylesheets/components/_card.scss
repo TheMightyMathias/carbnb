@@ -28,7 +28,7 @@
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 14px;
 }
 .card-description p {
   font-size: 14px;
@@ -135,7 +135,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
+}
   #profile-cars {
   .card {
     border-top-right-radius: 5px;
@@ -162,13 +162,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #D3D3D3;
+    background-color: white;
     opacity: 0.95;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
   }
 }
-}
-
-
-

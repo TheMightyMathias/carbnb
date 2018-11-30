@@ -13,6 +13,7 @@
           <% photo = "http://www.cookandreevesvans.com/static/img/default-car.jpg" %>
           <% else %>
           <% photo = cl_image_path(booking.car.photos.first.picture) %>
+
           <% end %>
           <div class="booking-img-card" style="background-image: url(<%= photo %>)"></div>
           <div class="container-trip-details">
