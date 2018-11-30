@@ -1,6 +1,8 @@
 h1 {
-
   margin-bottom: 40px;
+  position: relative;
+  left: 300px;
+  bottom: 100px;
 }
 
 .form-border{
@@ -8,18 +10,22 @@ h1 {
  justify-content: center;
  align-items: center;
  border:2px solid #ded4da;
- padding:50px;
- height:auto;
+ padding:20px;
+ height: auto;
+ width: auto;
+ position: relative;
 }
 
 .form-car-dates {
-  width: 60%;
+
 
 }
 
 .car-details{
   border:2px solid #ded4da;
   padding:50px;
+  position: relative;
+  bottom: 200px;
 
 }
 
@@ -49,8 +55,13 @@ h1 {
   height:75%;
 }
 
+#car-image img{
+  height: 300px;
+  position: relative;
+  bottom: 100px;
+}
 
-
-
-
-
+.car-model h1 {
+  height: 50px;
+  bottom: 100px
+}
