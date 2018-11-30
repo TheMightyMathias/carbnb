@@ -1,9 +1,11 @@
+<div class="banner-sing-up" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
+
 
 <div class="container">
   <div class="row">
-      <div class="form-inputs">
-        <%= simple_form_for @car do |f| %>
-        <div class="col-sm-offset-4 col-sm-4">
+    <div class="col-sm-offset-4 col-sm-4"><h2>Add a new car</h2>
+      <%= simple_form_for @car do |f| %>
+      <div class="col-sm-offset-4 col-sm-4">
         <%= f.input :title %>
         <%= f.input :brand %>
         <%= f.input :model %>
@@ -13,10 +15,11 @@
         <%= f.input :price %>
         <%= f.file_field  :photos, multiple: true %>
         <div class="form-actions">
-        <%= f.submit class: "btn btn-primary" %>
+          <%= f.button :submit, "Sign up", class: "search_button" %>
         </div>
         <% end %>
-     </div>
+         </div>
+      </div>
     </div>
   </div>
 </div>

@@ -35,3 +35,15 @@
 
 
 }
+
+.container-new-car {
+   margin: 0px;
+  color: white ;
+  text-align: center;
+  height: 150vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
