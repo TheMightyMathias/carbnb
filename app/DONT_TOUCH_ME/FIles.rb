@@ -1,9 +1,10 @@
+<!-- Show Page -->
+
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
+
 <h1> Vehicle to be Booked:</h1>
   <div class="box">
     <div class="dates">
-      <% if @booking.start_date == nil %>
-      <% else %>
       <div class="form-border">
         <div class="form-car-dates">
           <%= simple_form_for [@car, @booking] do |b| %>
@@ -18,9 +19,7 @@
             <%= link_to "Continue Browsing", search_path, class: "btn btn-primary" %>
           </div>
         </div>
-
       </div>
-      <% end %>
     </div>
         <% if @car.photos.first == nil  %>
         <img src=""http://www.cookandreevesvans.com/static/img/default-car.jpg"" alt="" class="car-image">
