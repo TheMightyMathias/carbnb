@@ -1,8 +1,35 @@
-
+.portfolio {
+    padding:6%;
+    text-align:center;
+  }
+.portfolio .bio-info{
+    padding: 5%;
+    background:#fff;
+    box-shadow: 0px 0px 4px 0px #b0b3b7;
+  }
+.portfolio .name{
+    font-family: 'Charmonman', cursive;
+    font-weight:600;
+  }
+.portfolio .bio-image{
+    text-align:center;
+    width: 100%;
+    max-height: 300px;
+  }
+.portfolio   .bio-content{
+    text-align:left;
+  }
+.portfolio  .bio-content p{
+    font-weight:600;
+    font-size:30px;
+  }
 
 .container-profile {
-    padding:5%;
-    width: 500px;
+    // padding:5%;
+    // width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .container-profile  .img{
     text-align:center;
@@ -14,3 +41,4 @@
     font-size:15px;
     font-weight:bold;
 }
+

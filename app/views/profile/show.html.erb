@@ -1,5 +1,5 @@
-  <div class="container profile-action">
-    <div class="row">
+  <div class="container container-profile">
+    <div class="row container-profile">
       <div class="col-xs-12 col-md-6 col-lg-4">
         <%= link_to "My Cars", profile_my_cars_path, class: "btn btn-navigation" %>
       </div>
@@ -9,31 +9,41 @@
     </div>
   </div>
 
-
-
-<div class="container-profile">
-  <div class="row">
-    <div class="col-md-6 img">
-      <% if @user.photo.blank? %>
-        <img src='https://www.freeiconspng.com/uploads/user-login-icon-14.png' style="height:150px;">
-        <% else %>
-        <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
-      <% end %>
-    </div>
-    <div class="col-md-6 details">
-      <blockquote>
-        <h5><%= @user.username %></h5>
-      </blockquote>
-      <p>
-        First Name: <%= @user.first_name %><br>
-        Last Name : <%= @user.last_name %><br>
-        Phone Number : <%= @user.phone_number %><br>
-        Email : <%= @user.email %><br>
-      </p>
-        <%= link_to edit_user_registration_path(current_user) do %>
-          <i class="far fa-edit"> Edit Profile</i>
-        <% end %>
+<div class="container portfolio">
+  <div class="bio-info">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="bio-image">
+              <% if @user.photo.blank? %>
+              <img src='https://www.freeiconspng.com/uploads/user-login-icon-14.png' style="height:150px;">
+              <% else %>
+              <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="bio-content">
+          <h1><%= @user.username %></h1>
+          <h6>
+          First Name: <%= @user.first_name %><br>
+          Last Name : <%= @user.last_name %><br>
+          Phone Number : <%= @user.phone_number %><br>
+          Email : <%= @user.email %><br>
+          </h6>
+          <div>
+            <%= link_to edit_user_registration_path(current_user) do %>
+              <i class="far fa-edit"> Edit Profile</i>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
 
