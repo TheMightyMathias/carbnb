@@ -17,7 +17,7 @@
     <% if car.photos.first == nil  %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.cookandreevesvans.com/static/img/default-car.jpg');">
       <% else %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path car.photos.first.picture, height: 175, crop: :fill %>')">
+      <% photo = cl_image_path car.photos.first.picture, height: 175, crop: :fill  %>
     <% end  %>
 
       <div class="card-category">

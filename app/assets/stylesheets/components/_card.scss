@@ -84,11 +84,28 @@
 }
 
 
-.booking-card {
-margin-left: 20px;
-margin-right: 20px;
-color: black;
-text-shadow: none;
+.card {
+  &.booking-card {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+    text-shadow: none;
+    width: 300px;
+    height: 550px;
+    border: solid, white, 3px;
+    background-color: white;
+    margin: 0px, 20px;
+  }
+  .booking-img-card {
+    height: 300px;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat
+  }
+  .container-trip-details {
+    padding-left: 10px;
+  }
 
 }
 
@@ -152,3 +169,6 @@ text-shadow: none;
   }
 }
 }
+
+
+

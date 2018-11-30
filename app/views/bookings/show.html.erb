@@ -1,17 +1,51 @@
 <!-- Need to raise an error if current user different from owner / renter -->
 
-<h2>Info about the Booking</h2>
-<%=  @booking.start_date%>
-<%=  @booking.end_date%>
-<%= @booking.validated %>
+<div class="booking-container-new">
+  <div class="booking-info">
+    <h2>Info about the Booking</h2>
+    <br>
+    <br>
+    <p><i class="fa fa-calendar"></i>  Starts: <%=  @booking.start_date%></p>
+    <p><i class="fa fa-calendar"></i>  Starts: <%=  @booking.end_date%></p>
+    <p>Booking Status :
+      <% if @booking.validated %>
+      <span style="color:green">Validated</span>
+      <% else %>
+      <span style="color:red">Pending</span>
+      <% end %>
+    </p>
+    <% if current_user == @car.user  %>
+    <%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %> <br>
+    <%= link_to "Decline Booking", booking_path(@booking.id), method: :delete %>
+    <% else %>
+    <%= link_to "Cancel Booking", booking_path(@booking.id), method: :delete %>
+    <% end %>
+  </div>
+  <div class="car-details">
 
-<h2>Info about the car</h2>
-<%= @car.model %>
-<%= @car.color %>
-<%= @car.year %>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width:200px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block" src="..." alt="First slide">
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+    <h2>Info about the car</h2>
+    <%= @car.model %>
+    <%= @car.color %>
+    <%= @car.year %>
+  </div>
+</div>
 
-<h2>Info about the renter</h2>
-<%= @renter.email %>
+
+
 <br>
 <% if current_user == @car.user  %>
 <%= link_to "Accept Booking", booking_path(@booking.id), method: :patch %> <br>
