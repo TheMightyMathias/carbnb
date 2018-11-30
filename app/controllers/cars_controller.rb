@@ -42,7 +42,7 @@ class CarsController < ApplicationController
       @cars = Car.where.not(latitude: nil, longitude: nil)
       @cars = Car.all.order('created_at DESC')
     end
-
+    
     @markers = @cars.map do |car|
       {
         lng: car.longitude,
