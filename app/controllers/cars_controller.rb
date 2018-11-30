@@ -12,8 +12,11 @@ class CarsController < ApplicationController
     @car = Car.new(car_params)
     @car.user = current_user
     if @car.save
-      params[:car][:photos].each do |photo|
-        @car.photos.create(picture: photo)
+      if params[:car][:photos] == nil
+      else
+        params[:car][:photos].each do |photo|
+          @car.photos.create(picture: photo)
+        end
       end
       redirect_to car_path(@car)
     else
@@ -22,7 +25,7 @@ class CarsController < ApplicationController
   end
 
   def search
- 
+
     if params[:query]
       sql_query = "location ILIKE :query"
       @cars = Car.where(sql_query, query: "%#{params[:query][:location]}%").order("created_at DESC")
@@ -30,7 +33,7 @@ class CarsController < ApplicationController
     else
       @cars = Car.all.order('created_at DESC')
     end
-    
+
        @cars = Car.where.not(latitude: nil, longitude: nil)
     @markers = @cars.map do |car|
       {
