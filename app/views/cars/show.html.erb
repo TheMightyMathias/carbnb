@@ -1,8 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
 
-
-  <!--   <div id="container" class= "banner-photo-show" style='text-align: center'> -->
-
     <div class="container">
       <h1> Your Dream Car</h1>
       <div class="row">
@@ -11,24 +8,28 @@
             <div class="form-car-dates">
               <% if @booking.start_date == nil  %>
               <% else %>
-
                 <%= simple_form_for [@car, @booking] do |b| %>
                 <%= b.input :start_date, :as => :hidden, :input_html => { :value => localize(b.object.start_date) } %>
                 <%= b.input :end_date, :as => :hidden, :input_html => { :value => localize(b.object.end_date) } %>
-                <p id="book_btn">Your booking starts on <%= @starts_at %> and ends on <%= @ends_at %></p>
+                <h4 id="book_btn">Your desired booking dates begin on <strong><%= @starts_at %></strong> and end on <strong><%= @ends_at %></strong></h4><br>
                 <h4>Please confirm your booking</h4>
                 <%= b.submit "Confirm Booking", class: "btn btn-primary" %>
                 <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div class="btn text-center">
-            <%= link_to "Back to all Cars", cars_path, class: "btn btn-primary" %>
+                or<br>
+              <div class="btn text-center">
+            <%= link_to "Continue Browsing", search_path, class: "btn btn-primary" %>
           </div>
         </div>
+    </div>
+  </div>
+</div>
+</div>
+        <div id="car-image" ><%= cl_image_tag @car.photos.first.picture %></div>
 
-        <div class="col-md-8 car-details text-center">
+
+        <div class="car-model">
           <h2><%= @car.model %></h2>
+
           <p>_______________________</p>
           <table class="car-info">
             <tr>
