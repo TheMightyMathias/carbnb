@@ -14,7 +14,8 @@
                 <h4>Please confirm your booking</h4>
                 <%= b.submit "Confirm Booking", class: "btn btn-primary" %>
                 <% end %>
-                or<br>
+                <% end %>
+                <br>
               <div class="btn text-center">
             <%= link_to "Continue Browsing", search_path, class: "btn btn-primary" %>
           </div>
@@ -23,8 +24,11 @@
   </div>
 </div>
 </div>
+        <% if @car.photos.first == nil  %>
+        <img src=""http://www.cookandreevesvans.com/static/img/default-car.jpg"" alt="" class="car-image">
+        <% else %>
         <div id="car-image" ><%= cl_image_tag @car.photos.first.picture %></div>
-
+        <% end %>
 
         <div class="car-model">
           <h2><%= @car.model %></h2>
