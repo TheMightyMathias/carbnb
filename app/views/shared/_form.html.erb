@@ -1,13 +1,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
-      <h2>Add your car</h2>
-
       <div class="form-inputs">
-
-
         <%= simple_form_for @car do |f| %>
+        <div class="col-sm-offset-4 col-sm-4">
         <%= f.input :title %>
         <%= f.input :brand %>
         <%= f.input :model %>
@@ -17,7 +13,7 @@
         <%= f.input :price %>
         <%= f.file_field  :photos, multiple: true %>
         <div class="form-actions">
-        <%= f.submit %>
+        <%= f.submit class: "btn btn-primary" %>
         </div>
         <% end %>
      </div>

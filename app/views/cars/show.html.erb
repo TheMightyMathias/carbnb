@@ -2,7 +2,7 @@
 
 
   <!--   <div id="container" class= "banner-photo-show" style='text-align: center'> -->
-    <!-- <p id="book_btn">Your booking starts on <%= @starts_at %> and ends on <%= @ends_at %></p> -->
+
     <div class="container">
       <h1> Your Dream Car</h1>
       <div class="row">
@@ -13,9 +13,11 @@
               <% else %>
 
                 <%= simple_form_for [@car, @booking] do |b| %>
-                <%= b.input :start_date, :as => :string, :input_html => { :value => localize(b.object.start_date) } %>
-                <%= b.input :end_date, :as => :string, :input_html => { :value => localize(b.object.end_date) } %>
-                <%= b.submit "Submit", class: "btn btn-primary" %>
+                <%= b.input :start_date, :as => :hidden, :input_html => { :value => localize(b.object.start_date) } %>
+                <%= b.input :end_date, :as => :hidden, :input_html => { :value => localize(b.object.end_date) } %>
+                <p id="book_btn">Your booking starts on <%= @starts_at %> and ends on <%= @ends_at %></p>
+                <h4>Please confirm your booking</h4>
+                <%= b.submit "Confirm Booking", class: "btn btn-primary" %>
                 <% end %>
               <% end %>
             </div>

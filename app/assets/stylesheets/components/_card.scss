@@ -118,7 +118,7 @@ text-shadow: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
+}
   #profile-cars {
   .card {
     border-top-right-radius: 5px;
@@ -145,10 +145,9 @@ text-shadow: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #D3D3D3;
+    background-color: white;
     opacity: 0.95;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
   }
-}
 }
