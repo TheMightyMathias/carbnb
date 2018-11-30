@@ -1,0 +1,23 @@
+.booking-container-new {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: left;
+}
+
+.booking-container-new p {
+  font-size: 20px;
+}
+
+
+.booking-info {
+  border: 5px solid white;
+  padding: 10px;
+}
+
+.car-details-booking {
+  border: 5px solid white;
+  padding: 10px;
+  flex-grow: 1;
+}
