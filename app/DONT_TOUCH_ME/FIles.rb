@@ -1,3 +1,5 @@
+<!-- Show Page -->
+
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_TI_6_Hero_CC_BigSur_coast_TS_1280x642_0.jpg');">
 
 <h1> Vehicle to be Booked:</h1>
