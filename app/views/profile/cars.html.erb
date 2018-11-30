@@ -17,7 +17,7 @@
               <%= link_to edit_car_path(car.id), class: "edit-car" do %>
               <i class="far fa-edit" style="color:white"> Edit</i>
               <% end %>
-              <h4 class="card-title"><%= car.title %></h4>
+              <h4 class="card-title"><%= link_to "Pending Bookings", profile_my_trips_path %></h4>
               <%= link_to "Delete", car_path(car),
               method: :delete,
               data: { confirm: "Are you sure?" }, class: "delete-car" %>
