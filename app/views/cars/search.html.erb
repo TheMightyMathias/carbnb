@@ -1,29 +1,33 @@
-
-
-<h1>Search Results</h1>
-
-<div class="container">
-  <div class="row">
-    <% @cars.each do |car| %>
-    <div class="col-xs-12 col-md-6 col-md-6">
-      <%= link_to car_path(car, query: @params) do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i.kinja-img.com/gawker-media/image/upload/s--N9dSzhBR--/c_scale,f_auto,fl_progressive,q_80,w_800/h69z8tw0lyq9b8txhupw.jpg');">
-        <%= car.location%>
-        <div class="card-description">
-          <h2><%= car.brand %></h2>
-          <p><%= car.model %></p>
+<div class="banner index" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
+  <div class="flex-container">
+    <div class="cards-container">
+    <h1>Search Results</h1>
+     <div class="row">
+      <!-- <div class="col-sm-4"> -->
+        <% @cars.each do |car| %>
+        <div class="col-xs-12 col-md-6 col-md-6">
+          <%= link_to car_path(car, query: @params) do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://i.kinja-img.com/gawker-media/image/upload/s--N9dSzhBR--/c_scale,f_auto,fl_progressive,q_80,w_800/h69z8tw0lyq9b8txhupw.jpg');">
+            <div class="card-category">
+            <h5><%= car.location%></h5>
+            </div>
+            <div class="card-description">
+              <h2><%= car.brand %></h2>
+              <p><%= car.model %></p>
+            </div>
+          </div>
+          <% end %>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
-    <% end %>
 
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-
+        <div
+        id="map"
+        style="width: 100%;
+        height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+  </div>
 </div>
